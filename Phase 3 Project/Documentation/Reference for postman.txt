@@ -1,0 +1,151 @@
+auth-service
+	1) usercontroller
+		/api/v1/login    post 
+			requestbody
+			{
+				"userName":"",
+				"password":""
+			}
+			
+		
+		/api/v1/logout   post
+			requestheader
+			Authorization :
+		
+		/api/v1/create-user   post
+			requestbody
+			{
+				"firstName" : "",
+				"lastName" : "",
+				"emailId" : "",
+				"mobileNumber" : "",
+				"password" : ""
+			}
+		
+		/api/v1/change-password   post
+			requestheader
+			Authorization :
+			requestbody
+			{
+				"currentPassword" : "",
+				"newPassword" : "",
+				"retypePassword" : ""
+			}
+
+admin-service
+	1)usercontroller
+		/api/v1/update-profile  post
+			requestheader
+			Authorization :
+			requestbody
+			{
+				"firstName" : "",
+				"lastName" : "",
+				"mobileNumber" : ""	
+			}
+	
+		/api/v1/get/profile   get
+			
+			requestheader
+			Authorization :
+	2)QuizQuestionController
+		/api/v1/get/quiz/question/{quizId}   get
+			requestheader
+			Authorization :
+		/api/v1/delete/quiz/question/{quizQuestionId}  get
+			requestheader
+			Authorization :
+		/api/v1/add/quiz/question   post
+			requestheader
+			Authorization :
+			requestbody
+				{
+				 
+				 "quizId" : "",
+				 "questionId" : ""
+				}
+			
+	3)QuizController
+		api/v1/getAllQuiz  get	
+			requestheader
+			Authorization :
+		api/v1/get/quiz/{quizId}  get
+			requestheader
+			Authorization :
+		api/v1/delete/quiz/{quizId}   get
+			requestheader
+			Authorization :
+		api/v1/update/quiz   post
+			requestheader
+			Authorization :
+			requestbody
+				{
+				 "id" : "",
+				 "title" : "",
+				 "category" : ""
+				}
+				
+		api/v1/create/quiz   post
+			requestheader
+			Authorization :
+			requestbody
+				{
+				 "title" : "",
+				 "category" : ""
+				}
+	
+	4)QuestionController
+		api/v1/getAllQuestion   get
+			requestheader
+			Authorization :
+		api/v1/get/question/{questionId}  get
+			requestheader
+			Authorization :
+		api/v1/delete/question/{questionId}  get
+			requestheader
+			Authorization :
+		api/v1/update/question   post
+			requestheader
+			Authorization :
+			requestbody
+				{
+				 "id" : "",
+				 "question" : "",
+				"optionA" : "",
+				"optionB" : "",
+				"optionC" : "",
+				"optionD" : "",
+				"rightOption" : ""
+				}
+		
+		api/v1/add/question   post
+			requestheader
+			Authorization :
+			requestbody
+				{
+				 "question" : "",
+				"optionA" : "",
+				"optionB" : "",
+				"optionC" : "",
+				"optionD" : "",
+				"rightOption" : ""
+				}
+
+quiz-service
+	1)QuizController
+		api/v1/get/quiz/next/question/{quizId}   get
+			requestheader
+			Authorization :
+			
+		api/v1/submit/question  post
+			requestheader
+			Authorization :
+			requestbody
+				{
+				"quizId" :"",
+				"questionId" : "",
+				"answer" : ""
+				}
+		api/v1/leaderBoard/{quizId}  get
+			requestheader
+			Authorization :
